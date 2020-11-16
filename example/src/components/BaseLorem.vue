@@ -1,5 +1,7 @@
 <template>
   <p>
+    <button class="vfm-btn" @click="$emit('close')">asdf</button>
+    {{ text }}
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget lacus et
     urna tincidunt imperdiet. Sed sagittis nisl sed felis molestie, quis aliquet
     nulla iaculis. Maecenas risus quam, dictum a magna sit amet, rutrum sagittis
@@ -13,3 +15,14 @@
     libero tristique consequat eu non sapien.
   </p>
 </template>
+
+<script>
+export default {
+  props: {
+    text: {
+      type: String,
+      default: ''
+    }
+  }
+}
+</script>

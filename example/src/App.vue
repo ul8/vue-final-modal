@@ -1,5 +1,7 @@
 <template>
   <div id="app" class="p-4">
+    <button class="vfm-btn mb-4" @click="dynamic">Dynamic Modal</button>
+
     <BasicOptions />
 
     <p class="text-xl py-2">v-basic:</p>
@@ -22,3 +24,51 @@
     <div v-for="i in 100" :key="i">{{ i }}</div>
   </div>
 </template>
+
+<script>
+import BaseLorem from '@/components/BaseLorem'
+import VModal from '@/components/hoc/VModal'
+
+export default {
+  methods: {
+    dynamic() {
+      this.$vfm.show({
+        component: VModal,
+        slots: {
+          default: {
+            component: BaseLorem,
+            props: {
+              text: 'Text has been passed as a property.'
+            }
+          },
+          title: {
+            component: BaseLorem,
+            props: {
+              text: 'Text has been passed as a property.'
+            }
+          }
+        },
+        props: {
+          name: 'dynamic',
+          focusTrap: true
+          // preventClick: true
+          // attach: '#attach'
+        },
+        events: {
+          cancel: () => {
+            console.log('cancel')
+            this.$vfm.hide('dynamic')
+          },
+          confirm: () => {
+            console.log('confirm')
+            this.$vfm.hide('dynamic')
+          },
+          closed() {
+            console.log('closed')
+          }
+        }
+      })
+    }
+  }
+}
+</script>
