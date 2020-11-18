@@ -3,6 +3,7 @@
     <v-modal
       v-model="showModal"
       v-bind="props"
+      name="optionsDialog"
       @confirm="showModal = false"
       @cancel="showModal = false"
     >

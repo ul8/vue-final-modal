@@ -14,7 +14,7 @@
       <button class="vfm-btn" @click="$emit('confirm')">confirm</button>
       <button class="vfm-btn" @click="$emit('cancel')">cancel</button>
     </div>
-    <button class="modal__close" @click="$emit('input', false)">
+    <button class="modal__close" @click="$emit('update:modelValue', false)">
       <mdi-close></mdi-close>
     </button>
   </vue-final-modal>
